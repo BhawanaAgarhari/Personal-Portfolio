@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhawana Agrahari - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* CSS Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
+      color: #333;
+    }
+
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ccc;
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 0 20px;
+    }
+
+    .hero-content {
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      margin-bottom: 40px;
+      color: #fff;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #fff;
+      color: #8e2de2;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 16px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #8e2de2;
+      color: #fff;
+    }
+
+    /* About Section Styles */
+    .about {
+      padding: 80px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .about h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .about p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 40px;
+      color: #fff;
+    }
+
+    .about-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Skills Section Styles */
+    .skills {
+      padding: 80px 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .skills h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-item {
+      background-color: #8e2de2;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .skill-item i {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .skill-item h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .skill-item p {
+      font-size: 14px;
+    }
+
+    /* Projects Section Styles */
+    .projects {
+      padding: 80px 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .projects h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .project-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .project-item h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .project-item p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .project-item .btn {
+      background-color: #8e2de2;
+      color: #fff;
+    }
+
+    .project-item .btn:hover {
+      background-color: #fff;
+      color: #8e2de2;
+    }
+
+    /* Contact Section Styles */
+    .contact {
+      padding: 80px 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .contact h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .contact-form textarea {
+      height: 150px;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      background-color: #8e2de2;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #4a00e0;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 14px;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Bhawana Agrahari</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Bhawana Agrahari</h1>
+      <p>Web Developer & UI/UX Designer</p>
+      <a href="https://github.com/ShuklaGarvita/inventory_tracking" class="btn">View My work</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-image">
+      <img src="https://th.bing.com/th/id/OIP.6qmtIzCF1FIbvdOhqcuTXAHaHU?rs=1&pid=ImgDetMain" alt="Bhawana Agrahari">
+    </div>
+    <h2>About Me</h2>
+    <p>"I am a web developer and UI/UX designer with a passion for creating beautiful, user-centric, and functional websites. 
+        With strong expertise in HTML, CSS, JavaScript, and various frameworks and libraries, I bring a detail-oriented approach to optimizing user experiences and enhancing interactivity. 
+        I am committed to delivering innovative solutions that meet both aesthetic and technical requirements."</p>
+    <a href="https://drive.google.com/file/d/1KTCwMEcGHEmoU4CcjKuuPyQpYUtDAbaM/view?usp=sharing" class="btn"> My Resume</a>
+  </section>
+
+  <section class="skills" id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-list">
+      <div class="skill-item">
+        <i class="fa fa-code"></i>
+        <h3>Programming Languages</h3>
+        <p>Python, HTML/CSS, UI/UX Design</p>
+      </div>
+      <div class="skill-item">
+        <i class="fa fa-cubes"></i>
+        <h3>Libraries/Frameworks</h3>
+        <p>JavaScript, Data Analysis, Bootstrap</p>
+      </div>
+      <div class="skill-item">
+        <i class="fa fa-tools"></i>
+        <h3>Tools / Platforms</h3>
+        <p>Git, WordPress, Figma, Microsoft Office, VS Code</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <h2>My Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://th.bing.com/th/id/OIP.Xo2BtvzBEU1DCikj3A6IUwHaCU?w=328&h=109&c=7&r=0&o=5&pid=1.7" alt="Inventory Tracking System">
+        <h3>Inventory Tracking System</h3>
+        <p>A College Inventory Management System featuring Barcode Implementation, designed to revolutionize inventory management in educational institutions.</p>
+        <a href="#" class="btn">View Project</a>
+      </div>
+      <div class="project-item">
+        <img src="https://th.bing.com/th?id=OIP.ajl_bl6j3Fxqpw_jXmrsswHaFj&w=288&h=216&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2 alt="Personal Portfolio">
+        <h3>Personal Portfolio</h3>
+        <p>A responsive personal portfolio showcasing projects and skills, with a focus on user experience and modern design principles.</p>
+        <a href="#" class="btn">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Get in Touch</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Bhawana Agrahari. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Smooth scroll to sections
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = e.target.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
